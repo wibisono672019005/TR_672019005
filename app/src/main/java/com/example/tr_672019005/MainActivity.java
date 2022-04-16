@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     private TextView txt_namapengguna;
-    private Button btnKeluar, btnMenuActivity;
+    private Button btnKeluar;
     private FirebaseUser firebaseUser;
 
     @SuppressLint("SetTextI18n")
@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         txt_namapengguna = findViewById(R.id.txt_namapengguna);
         btnKeluar = findViewById(R.id.btnKeluar);
-        btnMenuActivity = findViewById(R.id.btnMenuActivity);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -40,10 +39,5 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), MasukActivity.class));
             finish();
         });
-
-        btnMenuActivity.setOnClickListener(view -> {
-            startActivity(new Intent(getApplicationContext(), MenuActivity.class));
-        });
-
     }
 }
