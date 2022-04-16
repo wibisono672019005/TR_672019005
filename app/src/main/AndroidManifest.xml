@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TR_672019005">
         <activity
-<<<<<<< HEAD
+            android:name=".DetailBarang"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity
-=======
->>>>>>> parent of 8a8e359 (Recycler View Barang)
             android:name=".MasukActivity"
             android:exported="true">
             <intent-filter>
@@ -29,13 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-<<<<<<< HEAD
-            android:exported="false"></activity>
-=======
-            android:exported="false">
-
-        </activity>
->>>>>>> parent of 8a8e359 (Recycler View Barang)
+            android:exported="false" />
     </application>
 
 </manifest>

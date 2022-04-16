@@ -1,7 +1,6 @@
 package com.example.tr_672019005;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +8,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import java.util.ArrayList;
 
@@ -38,18 +36,8 @@ public class AdapterBarang extends RecyclerView.Adapter<AdapterBarang.MyViewHold
         Barang barang = barangArrayList.get(position);
 
         holder.txt_namabarang.setText(barang.namabarang);
-        holder.txt_hargabarang.setText(barang.hargabarang);
+        holder.txt_hargabarang.setText(String.valueOf(barang.hargabarang));
         holder.txt_deskripsibarang.setText(barang.deskripsibarang);
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, DetailBarang.class);
-                intent.putExtra("detail", barangArrayList.get(position));
-                context.startActivity(intent);
-            }
-        });
-
     }
 
     @Override
