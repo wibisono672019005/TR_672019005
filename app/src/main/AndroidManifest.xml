@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TR_672019005">
         <activity
-            android:name=".DetailBarang"
-            android:exported="false" />
-        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity
@@ -29,7 +26,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"></activity>
     </application>
 
 </manifest>

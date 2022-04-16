@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class Barang implements Serializable {
 
-    String namabarang, deskripsibarang, imgbarang;
+    String namabarang, deskripsibarang;
     int hargabarang;
 
     public Barang() {
 
     }
 
-    public Barang(String namabarang, String deskripsibarang, String imgbarang, int hargabarang) {
+
+    public Barang(String namabarang, String deskripsibarang, int hargabarang) {
         this.namabarang = namabarang;
         this.deskripsibarang = deskripsibarang;
-        this.imgbarang = imgbarang;
         this.hargabarang = hargabarang;
     }
 
@@ -34,15 +34,9 @@ public class Barang implements Serializable {
         this.deskripsibarang = deskripsibarang;
     }
 
-    public String getImgbarang() {
-        return imgbarang;
+    public int getHargabarang() {
+        return hargabarang;
     }
-
-    public void setImgbarang(String imgbarang) {
-        this.imgbarang = imgbarang;
-    }
-
-    public int getHargabarang() { return hargabarang; }
 
     public void setHargabarang(int hargabarang) {
         this.hargabarang = hargabarang;
