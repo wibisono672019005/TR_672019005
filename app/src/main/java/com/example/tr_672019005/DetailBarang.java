@@ -66,7 +66,7 @@ public class DetailBarang extends AppCompatActivity {
         if (barang != null) {
             Glide.with(getApplicationContext()).load(barang.getImgbarang()).into(img_detailbarang);
             txt_detailnama.setText(barang.getNamabarang());
-            txt_detailharga.setText(barang.getHargabarang());
+            txt_detailharga.setText(String.valueOf(barang.getHargabarang()));
             txt_detaildeskripsi.setText(barang.getDeskripsibarang());
 
             totalharga = barang.getHargabarang() * totalbarang;

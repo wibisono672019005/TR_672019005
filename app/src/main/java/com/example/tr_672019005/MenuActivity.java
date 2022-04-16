@@ -49,12 +49,6 @@ public class MenuActivity extends AppCompatActivity {
         adapterBarang = new AdapterBarang(MenuActivity.this, barangArrayList);
 
         recyclerView.setAdapter(adapterBarang);
-        recyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), DetailBarang.class));
-            }
-        });
 
         EventChangeListener();
 
