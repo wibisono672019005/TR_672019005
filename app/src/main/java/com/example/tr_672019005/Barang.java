@@ -1,17 +1,20 @@
 package com.example.tr_672019005;
 
-public class Barang {
+import java.io.Serializable;
 
-    String namabarang, deskripsibarang;
-    long hargabarang;
+public class Barang implements Serializable {
+
+    String namabarang, deskripsibarang, imgbarang;
+    int hargabarang;
 
     public Barang() {
 
     }
 
-    public Barang(String namabarang, String deksripsibarang, long hargabarang) {
+    public Barang(String namabarang, String deskripsibarang, String imgbarang, int hargabarang) {
         this.namabarang = namabarang;
-        this.deskripsibarang = deksripsibarang;
+        this.deskripsibarang = deskripsibarang;
+        this.imgbarang = imgbarang;
         this.hargabarang = hargabarang;
     }
 
@@ -31,11 +34,17 @@ public class Barang {
         this.deskripsibarang = deskripsibarang;
     }
 
-    public long getHargabarang() {
-        return hargabarang;
+    public String getImgbarang() {
+        return imgbarang;
     }
 
-    public void setHargabarang(long hargabarang) {
+    public void setImgbarang(String imgbarang) {
+        this.imgbarang = imgbarang;
+    }
+
+    public int getHargabarang() { return hargabarang; }
+
+    public void setHargabarang(int hargabarang) {
         this.hargabarang = hargabarang;
     }
 }

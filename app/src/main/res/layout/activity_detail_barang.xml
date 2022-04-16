@@ -95,7 +95,7 @@
         android:layout_marginLeft="8dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_jumlahbarang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -104,7 +104,7 @@
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
-        app:layout_constraintStart_toEndOf="@+id/tambah_barang"
+        app:layout_constraintStart_toEndOf="@+id/img_tambahbarang"
         app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
 
     <ImageView
@@ -114,7 +114,7 @@
         android:layout_marginLeft="10dp"
         android:src="@drawable/ic_plus_item"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/txt_jumlahbarang"
         app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
 
     <Button
@@ -128,12 +128,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
-
-
-
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
