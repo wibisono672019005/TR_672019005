@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.media.metrics.Event;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,6 +34,7 @@ public class MenuActivity extends AppCompatActivity {
     AdapterBarang adapterBarang;
     FirebaseFirestore db;
     ProgressDialog progressDialog;
+    TextView txt_listkategori;
 
     List<KategoriBarang> kategoriBarangList;
     AdapterKategori adapterKategori;
@@ -84,6 +85,15 @@ public class MenuActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+        txt_listkategori = findViewById(R.id.txt_listkategori);
+        txt_listkategori.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentlistkategori = new Intent(MenuActivity.this, ListKategoriActivity.class);
+                startActivity(intentlistkategori);
+            }
+        });
 
     }
 
