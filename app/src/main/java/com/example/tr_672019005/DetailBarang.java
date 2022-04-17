@@ -55,7 +55,6 @@ public class DetailBarang extends AppCompatActivity {
         }
 
         txt_jumlahbarang = findViewById(R.id.txt_jumlahbarang);
-
         img_detailbarang = findViewById(R.id.img_detailbarang);
         img_tambahbarang = findViewById(R.id.img_tambahbarang);
         img_kurangbarang = findViewById(R.id.img_kurangbarang);
@@ -112,15 +111,25 @@ public class DetailBarang extends AppCompatActivity {
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         saveCurrentTime = currentTime.format(calForDate.getTime());
 
-        final HashMap<String,Object> keranjang = new HashMap<>();
+        final HashMap<String,Object> keranjangMap = new HashMap<>();
 
-        keranjang.put("namabarang", barang.getNamabarang());
-        keranjang.put("hargabarang", txt_detailharga.getText().toString());
-        keranjang.put("currentDate", saveCurrentDate);
-        keranjang.put("currentTime", saveCurrentTime);
-        keranjang.put("totalbarang", txt_jumlahbarang.getText().toString());
-        keranjang.put("totalharga", totalharga);
+        keranjangMap.put("namabarang", barang.getNamabarang());
+        keranjangMap.put("hargabarang", txt_detailharga.getText().toString());
+        keranjangMap.put("currentDate", saveCurrentDate);
+        keranjangMap.put("currentTime", saveCurrentTime);
+        keranjangMap.put("totalbarang", txt_jumlahbarang.getText().toString());
+        keranjangMap.put("totalharga", totalharga);
 
-
+        firebaseFirestore.collection("AddToCart")
+                .document(auth.getCurrentUser().getUid())
+                .collection("CurrentUser")
+                .add(keranjangMap)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        Toast.makeText(DetailBarang.this, "Berhasil ditambahkan ke Keranjang", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                });
     }
 }

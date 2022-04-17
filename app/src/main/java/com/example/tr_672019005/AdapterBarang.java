@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -37,9 +40,10 @@ public class AdapterBarang extends RecyclerView.Adapter<AdapterBarang.MyViewHold
 
         Barang barang = barangArrayList.get(position);
 
-        holder.txt_namabarang.setText(barang.namabarang);
-        holder.txt_hargabarang.setText(String.valueOf(barang.hargabarang));
-        holder.txt_deskripsibarang.setText(barang.deskripsibarang);
+        Glide.with(context).load(barang.getImgbarang()).into(holder.img_gambarbarang);
+        holder.txt_namabarang.setText(barang.getNamabarang());
+        holder.txt_hargabarang.setText(String.valueOf(barang.getHargabarang()));
+        holder.txt_deskripsibarang.setText(barang.getDeskripsibarang());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,12 +63,14 @@ public class AdapterBarang extends RecyclerView.Adapter<AdapterBarang.MyViewHold
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView txt_namabarang, txt_hargabarang, txt_deskripsibarang;
+        ImageView img_gambarbarang;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txt_namabarang = itemView.findViewById(R.id.txt_namabarang);
             txt_hargabarang = itemView.findViewById(R.id.txt_hargabarang);
             txt_deskripsibarang = itemView.findViewById(R.id.txt_deskripsibarang);
+            img_gambarbarang = itemView.findViewById(R.id.img_gambarbarang);
         }
     }
 }
