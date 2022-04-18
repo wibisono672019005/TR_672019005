@@ -20,7 +20,7 @@ import java.util.List;
 public class ListKategoriActivity extends AppCompatActivity {
 
     RecyclerView listKategoriRV;
-    List<ModelListKategori> modelListKategoriList;
+    List<ListKategoriBarang> listKategoriBarangList;
     AdapterListKategori adapterListKategori;
 
     FirebaseFirestore db;
@@ -35,8 +35,8 @@ public class ListKategoriActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         listKategoriRV.setLayoutManager(new LinearLayoutManager(this));
-        modelListKategoriList = new ArrayList<ModelListKategori>();
-        adapterListKategori = new AdapterListKategori(ListKategoriActivity.this, modelListKategoriList);
+        listKategoriBarangList = new ArrayList<ListKategoriBarang>();
+        adapterListKategori = new AdapterListKategori(ListKategoriActivity.this, listKategoriBarangList);
         listKategoriRV.setAdapter(adapterListKategori);
         db.collection("Kategori")
                 .get()
@@ -46,8 +46,8 @@ public class ListKategoriActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                ModelListKategori modelListKategori = document.toObject(ModelListKategori.class);
-                                modelListKategoriList.add(modelListKategori);
+                                ListKategoriBarang listKategoriBarang = document.toObject(ListKategoriBarang.class);
+                                listKategoriBarangList.add(listKategoriBarang);
                                 adapterListKategori.notifyDataSetChanged();
                             }
                         } else {

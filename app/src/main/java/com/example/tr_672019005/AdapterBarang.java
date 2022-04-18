@@ -19,11 +19,11 @@ import java.util.ArrayList;
 public class AdapterBarang extends RecyclerView.Adapter<AdapterBarang.MyViewHolder> {
 
     Context context;
-    ArrayList<ModelBarang> modelBarangArrayList;
+    ArrayList<Barang> barangArrayList;
 
-    public AdapterBarang(Context context, ArrayList<ModelBarang> modelBarangArrayList) {
+    public AdapterBarang(Context context, ArrayList<Barang> barangArrayList) {
         this.context = context;
-        this.modelBarangArrayList = modelBarangArrayList;
+        this.barangArrayList = barangArrayList;
     }
 
     @NonNull
@@ -38,18 +38,18 @@ public class AdapterBarang extends RecyclerView.Adapter<AdapterBarang.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull AdapterBarang.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        ModelBarang modelBarang = modelBarangArrayList.get(position);
+        Barang barang = barangArrayList.get(position);
 
-        Glide.with(context).load(modelBarang.getImgbarang()).into(holder.img_gambarbarang);
-        holder.txt_namabarang.setText(modelBarang.getNamabarang());
-        holder.txt_hargabarang.setText(String.valueOf(modelBarang.getHargabarang()));
-        holder.txt_deskripsibarang.setText(modelBarang.getDeskripsibarang());
+        Glide.with(context).load(barang.getImgbarang()).into(holder.img_gambarbarang);
+        holder.txt_namabarang.setText(barang.getNamabarang());
+        holder.txt_hargabarang.setText(String.valueOf(barang.getHargabarang()));
+        holder.txt_deskripsibarang.setText(barang.getDeskripsibarang());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailBarang.class);
-                intent.putExtra("detail", modelBarangArrayList.get(position));
+                intent.putExtra("detail", barangArrayList.get(position));
                 context.startActivity(intent);
             }
         });
@@ -57,7 +57,7 @@ public class AdapterBarang extends RecyclerView.Adapter<AdapterBarang.MyViewHold
 
     @Override
     public int getItemCount() {
-        return modelBarangArrayList.size();
+        return barangArrayList.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

@@ -88,50 +88,22 @@
             android:ems="10"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/txtMasuk_daftar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrasi Akun"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/btnMasuk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:text="Masuk"
         android:layout_marginTop="20dp"
-        menu:layout_constraintEnd_toEndOf="parent"
-        menu:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Belum mempunyai Akun? "
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            menu:layout_constraintBottom_toBottomOf="parent"
-            menu:layout_constraintEnd_toEndOf="parent"
-            menu:layout_constraintHorizontal_bias="0.37"
-            menu:layout_constraintStart_toStartOf="parent"
-            menu:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/txtMasuk_daftar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Daftar"
-            android:textColor="@color/warnautama"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            menu:layout_constraintEnd_toEndOf="parent"
-            menu:layout_constraintHorizontal_bias="0.0"
-            menu:layout_constraintStart_toEndOf="@+id/textView"
-            menu:layout_constraintTop_toTopOf="@+id/textView" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        android:layout_gravity="center"/>
 
 </LinearLayout>

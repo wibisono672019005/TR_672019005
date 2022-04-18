@@ -2,20 +2,19 @@ package com.example.tr_672019005;
 
 import java.io.Serializable;
 
-public class ModelBarang implements Serializable {
+public class Barang implements Serializable {
 
-    String namabarang, deskripsibarang, imgbarang, type;
+    String namabarang, deskripsibarang, imgbarang;
     int hargabarang;
 
-    public ModelBarang() {
+    public Barang() {
 
     }
 
-    public ModelBarang(String namabarang, String deskripsibarang, String imgbarang, String type, int hargabarang) {
+    public Barang(String namabarang, String deskripsibarang, String imgbarang, int hargabarang) {
         this.namabarang = namabarang;
         this.deskripsibarang = deskripsibarang;
         this.imgbarang = imgbarang;
-        this.type = type;
         this.hargabarang = hargabarang;
     }
 
@@ -43,17 +42,7 @@ public class ModelBarang implements Serializable {
         this.imgbarang = imgbarang;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public int getHargabarang() {
-        return hargabarang;
-    }
+    public int getHargabarang() { return hargabarang; }
 
     public void setHargabarang(int hargabarang) {
         this.hargabarang = hargabarang;

@@ -1,17 +1,16 @@
 package com.example.tr_672019005;
 
-public class ModelListKategori {
+public class KategoriBarang {
 
-    String namakategori, imgkategori, deskripsikategori, type;
+    String namakategori, imgkategori, type;
 
-    public ModelListKategori() {
+    public KategoriBarang() {
 
     }
 
-    public ModelListKategori(String namakategori, String imgkategori, String deskripsikategori, String type) {
+    public KategoriBarang(String namakategori, String imgkategori, String type) {
         this.namakategori = namakategori;
         this.imgkategori = imgkategori;
-        this.deskripsikategori = deskripsikategori;
         this.type = type;
     }
 
@@ -29,14 +28,6 @@ public class ModelListKategori {
 
     public void setImgkategori(String imgkategori) {
         this.imgkategori = imgkategori;
-    }
-
-    public String getDeskripsikategori() {
-        return deskripsikategori;
-    }
-
-    public void setDeskripsikategori(String deskripsikategori) {
-        this.deskripsikategori = deskripsikategori;
     }
 
     public String getType() {

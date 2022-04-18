@@ -36,7 +36,7 @@ public class DetailBarang extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     FirebaseAuth auth;
 
-    ModelBarang modelBarang = null;
+    Barang barang = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +50,8 @@ public class DetailBarang extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         final Object object = getIntent().getSerializableExtra("detail");
-        if (object instanceof ModelBarang) {
-            modelBarang = (ModelBarang) object;
+        if (object instanceof Barang) {
+            barang = (Barang) object;
         }
 
         txt_jumlahbarang = findViewById(R.id.txt_jumlahbarang);
@@ -62,13 +62,13 @@ public class DetailBarang extends AppCompatActivity {
         txt_detailharga = findViewById(R.id.txt_detailharga);
         txt_detaildeskripsi = findViewById(R.id.txt_detaildeskripsi);
 
-        if (modelBarang != null) {
-            Glide.with(getApplicationContext()).load(modelBarang.getImgbarang()).into(img_detailbarang);
-            txt_detailnama.setText(modelBarang.getNamabarang());
-            txt_detailharga.setText(String.valueOf(modelBarang.getHargabarang()));
-            txt_detaildeskripsi.setText(modelBarang.getDeskripsibarang());
+        if (barang != null) {
+            Glide.with(getApplicationContext()).load(barang.getImgbarang()).into(img_detailbarang);
+            txt_detailnama.setText(barang.getNamabarang());
+            txt_detailharga.setText(String.valueOf(barang.getHargabarang()));
+            txt_detaildeskripsi.setText(barang.getDeskripsibarang());
 
-            totalharga = modelBarang.getHargabarang() * totalbarang;
+            totalharga = barang.getHargabarang() * totalbarang;
 
         }
 
@@ -113,7 +113,7 @@ public class DetailBarang extends AppCompatActivity {
 
         final HashMap<String,Object> keranjangMap = new HashMap<>();
 
-        keranjangMap.put("namabarang", modelBarang.getNamabarang());
+        keranjangMap.put("namabarang", barang.getNamabarang());
         keranjangMap.put("hargabarang", txt_detailharga.getText().toString());
         keranjangMap.put("currentDate", saveCurrentDate);
         keranjangMap.put("currentTime", saveCurrentTime);

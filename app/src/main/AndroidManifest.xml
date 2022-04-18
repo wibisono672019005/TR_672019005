@@ -16,6 +16,8 @@
             android:name=".ListBarangActivity"
             android:exported="false" />
         <activity
+=======
+>>>>>>> parent of b8352b5 (Update Masuk dan Daftar)
             android:name=".ListKategoriActivity"
             android:exported="false" />
         <activity
