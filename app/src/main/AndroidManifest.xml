@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TR_672019005">
         <activity
+            android:name=".NavMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListBarangActivity"
             android:exported="false" />
         <activity
@@ -35,7 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>

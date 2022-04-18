@@ -14,14 +14,26 @@
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_daftar_pengguna.xml" value="0.14447463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_detail_barang.xml" value="0.22" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_list_barang.xml" value="0.15172101449275363" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_list_kategori_activity.xml" value="0.17572463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_list_kategori_barang.xml" value="0.15172101449275363" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_main.xml" value="0.14447463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_masuk.xml" value="0.22" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_menu.xml" value="0.1897644927536232" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_nav_main.xml" value="0.17572463768115942" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/app_bar_main.xml" value="0.18" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/content_main.xml" value="0.1453125" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/fragment_gallery.xml" value="0.16621376811594202" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/fragment_slideshow.xml" value="0.1453125" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/header_menu.xml" value="0.25" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/kategori_barang_item.xml" value="0.15172101449275363" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/list_barang_item.xml" value="0.15172101449275363" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/list_kategori_item.xml" value="0.15172101449275363" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/maindraw.xml" value="0.16621376811594202" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/menu_item.xml" value="0.1897644927536232" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/nav_header_main.xml" value="0.16621376811594202" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/menu/main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
