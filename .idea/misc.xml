@@ -10,14 +10,16 @@
         <entry key="..\:/Abi/TR_672019005-8a8e359f3e6cd770ab5fe1429e53307d41eb8f8c/app/src/main/res/layout/activity_menu.xml" value="0.1" />
         <entry key="..\:/Abi/TR_672019005-8a8e359f3e6cd770ab5fe1429e53307d41eb8f8c/app/src/main/res/layout/menu_item.xml" value="0.1" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/drawable/ic_mines_item.xml" value="0.1415" />
-        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_daftar.xml" value="0.14447463768115942" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_daftar.xml" value="0.21" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_daftar_pengguna.xml" value="0.14447463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_detail_barang.xml" value="0.22" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_list_barang.xml" value="0.15172101449275363" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_list_kategori_barang.xml" value="0.15172101449275363" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_main.xml" value="0.14447463768115942" />
-        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_masuk.xml" value="0.14447463768115942" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_masuk.xml" value="0.22" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_menu.xml" value="0.1897644927536232" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/kategori_barang_item.xml" value="0.15172101449275363" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/list_barang_item.xml" value="0.15172101449275363" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/list_kategori_item.xml" value="0.15172101449275363" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/menu_item.xml" value="0.1897644927536232" />
       </map>

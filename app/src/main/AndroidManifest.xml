@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TR_672019005">
         <activity
+            android:name=".ListBarangActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListKategoriActivity"
             android:exported="false" />
         <activity

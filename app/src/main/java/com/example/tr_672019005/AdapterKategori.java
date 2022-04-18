@@ -1,6 +1,7 @@
 package com.example.tr_672019005;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +18,11 @@ import java.util.List;
 public class AdapterKategori extends RecyclerView.Adapter<AdapterKategori.ViewHolder> {
 
     Context context;
-    List<KategoriBarang> kategoriBarangList;
+    List<ModelKategoriBarang> modelKategoriBarangList;
 
-    public AdapterKategori(Context context, List<KategoriBarang> kategoriBarangList) {
+    public AdapterKategori(Context context, List<ModelKategoriBarang> modelKategoriBarangList) {
         this.context = context;
-        this.kategoriBarangList = kategoriBarangList;
+        this.modelKategoriBarangList = modelKategoriBarangList;
     }
 
     @NonNull
@@ -33,16 +34,25 @@ public class AdapterKategori extends RecyclerView.Adapter<AdapterKategori.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        KategoriBarang kategoriBarang = kategoriBarangList.get(position);
+        ModelKategoriBarang modelKategoriBarang = modelKategoriBarangList.get(position);
 
-        Glide.with(context).load(kategoriBarang.getImgkategori()).into(holder.imgkategori);
-        holder.namakategori.setText(kategoriBarang.getNamakategori());
+        Glide.with(context).load(modelKategoriBarang.getImgkategori()).into(holder.imgkategori);
+        holder.namakategori.setText(modelKategoriBarang.getNamakategori());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ListBarangActivity.class);
+                intent.putExtra("type", modelKategoriBarang.getType());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return kategoriBarangList.size();
+        return modelKategoriBarangList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

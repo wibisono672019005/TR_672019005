@@ -10,7 +10,6 @@
     android:layout_marginEnd="16dp"
     tools:context=".DaftarActivity">
 
-
     <LinearLayout
         android:layout_marginTop="150dp"
         android:layout_width="match_parent"
@@ -102,15 +101,7 @@
             android:ems="10"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/txtDaftar_masuk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sudah Mempunyai Akun"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginTop="25dp"
-        android:layout_gravity="center"/>
+
 
     <Button
         android:id="@+id/btnDaftar"
@@ -119,5 +110,40 @@
         android:text="Daftar"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sudah mempunyai Akun? "
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            menu:layout_constraintBottom_toBottomOf="parent"
+            menu:layout_constraintEnd_toEndOf="parent"
+            menu:layout_constraintHorizontal_bias="0.36"
+            menu:layout_constraintStart_toStartOf="parent"
+            menu:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/txtDaftar_masuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masuk"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textColor="@color/warnautama"
+            menu:layout_constraintEnd_toEndOf="parent"
+            menu:layout_constraintHorizontal_bias="0.0"
+            menu:layout_constraintStart_toEndOf="@+id/textView"
+            menu:layout_constraintTop_toTopOf="@+id/textView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

@@ -30,13 +30,13 @@ import java.util.List;
 public class MenuActivity extends AppCompatActivity {
 
     RecyclerView recyclerView, kategoriRecyclerView;
-    ArrayList<Barang> barangArrayList;
+    ArrayList<ModelBarang> modelBarangArrayList;
     AdapterBarang adapterBarang;
     FirebaseFirestore db;
     ProgressDialog progressDialog;
     TextView txt_listkategori;
 
-    List<KategoriBarang> kategoriBarangList;
+    List<ModelKategoriBarang> modelKategoriBarangList;
     AdapterKategori adapterKategori;
 
     @Override
@@ -54,8 +54,8 @@ public class MenuActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        barangArrayList = new ArrayList<Barang>();
-        adapterBarang = new AdapterBarang(MenuActivity.this, barangArrayList);
+        modelBarangArrayList = new ArrayList<ModelBarang>();
+        adapterBarang = new AdapterBarang(MenuActivity.this, modelBarangArrayList);
         recyclerView.setAdapter(adapterBarang);
 
         db = FirebaseFirestore.getInstance();
@@ -65,8 +65,8 @@ public class MenuActivity extends AppCompatActivity {
         kategoriRecyclerView = findViewById(R.id.kategoriRecyclerView);
 
         kategoriRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
-        kategoriBarangList = new ArrayList<KategoriBarang>();
-        adapterKategori = new AdapterKategori(MenuActivity.this, kategoriBarangList);
+        modelKategoriBarangList = new ArrayList<ModelKategoriBarang>();
+        adapterKategori = new AdapterKategori(MenuActivity.this, modelKategoriBarangList);
         kategoriRecyclerView.setAdapter(adapterKategori);
         db.collection("Kategori")
                 .get()
@@ -76,8 +76,8 @@ public class MenuActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                KategoriBarang kategoriBarang = document.toObject(KategoriBarang.class);
-                                kategoriBarangList.add(kategoriBarang);
+                                ModelKategoriBarang modelKategoriBarang = document.toObject(ModelKategoriBarang.class);
+                                modelKategoriBarangList.add(modelKategoriBarang);
                                 adapterKategori.notifyDataSetChanged();
                             }
                         } else {
@@ -115,7 +115,7 @@ public class MenuActivity extends AppCompatActivity {
 
                         for (DocumentChange dc : value.getDocumentChanges()) {
                             if (dc.getType() == DocumentChange.Type.ADDED) {
-                                barangArrayList.add(dc.getDocument().toObject(Barang.class));
+                                modelBarangArrayList.add(dc.getDocument().toObject(ModelBarang.class));
                             }
                             adapterBarang.notifyDataSetChanged();
                             if (progressDialog.isShowing()) {
