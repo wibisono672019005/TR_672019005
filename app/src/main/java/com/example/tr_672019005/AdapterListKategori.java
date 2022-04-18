@@ -1,6 +1,7 @@
 package com.example.tr_672019005;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +18,11 @@ import java.util.List;
 public class AdapterListKategori extends RecyclerView.Adapter<AdapterListKategori.ViewHolder> {
 
     Context context;
-    List<ListKategoriBarang> listKategoriBarangList;
+    List<ModelListKategori> modelListKategoriList;
 
-    public AdapterListKategori(Context context, List<ListKategoriBarang> listKategoriBarangList) {
+    public AdapterListKategori(Context context, List<ModelListKategori> modelListKategoriList) {
         this.context = context;
-        this.listKategoriBarangList = listKategoriBarangList;
+        this.modelListKategoriList = modelListKategoriList;
     }
 
     @NonNull
@@ -33,17 +34,26 @@ public class AdapterListKategori extends RecyclerView.Adapter<AdapterListKategor
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        ListKategoriBarang listKategoriBarang = listKategoriBarangList.get(position);
+        ModelListKategori modelListKategori = modelListKategoriList.get(position);
 
-        Glide.with(context).load(listKategoriBarang.getImgkategori()).into(holder.imgkategori);
-        holder.namakategori.setText(listKategoriBarang.getNamakategori());
-        holder.deskripsikategori.setText(listKategoriBarang.getDeskripsikategori());
+        Glide.with(context).load(modelListKategori.getImgkategori()).into(holder.imgkategori);
+        holder.namakategori.setText(modelListKategori.getNamakategori());
+        holder.deskripsikategori.setText(modelListKategori.getDeskripsikategori());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ListBarangActivity.class);
+                intent.putExtra("type", modelListKategori.getType());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return listKategoriBarangList.size();
+        return modelListKategoriList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
