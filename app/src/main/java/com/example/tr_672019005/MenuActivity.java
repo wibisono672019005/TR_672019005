@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tr_672019005.databinding.ActivityMenuBinding;
+import com.example.tr_672019005.databinding.ActivityPesananBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentChange;
@@ -27,8 +29,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends DrawerBaseActivity {
 
+    ActivityMenuBinding activityMenuBinding;
     RecyclerView recyclerView, kategoriRecyclerView;
     ArrayList<ModelBarang> modelBarangArrayList;
     AdapterBarang adapterBarang;
@@ -42,7 +45,9 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        activityMenuBinding = ActivityMenuBinding.inflate(getLayoutInflater());
+        setContentView(activityMenuBinding.getRoot());
+        allocateActivityTitle("Home");
 
         progressDialog = new ProgressDialog(MenuActivity.this);
         progressDialog.setTitle("Loading");

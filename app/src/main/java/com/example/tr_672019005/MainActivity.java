@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnMenuActivity.setOnClickListener(view -> {
-            startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+            startActivity(new Intent(this, DashboardActivity.class));
         });
 
     }
