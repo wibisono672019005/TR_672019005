@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_marginTop="10dp"
-app:cardElevation="3dp"
-app:cardCornerRadius="3dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:menu="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="10dp"
+    app:cardElevation="3dp"
+    app:cardCornerRadius="3dp">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -19,10 +21,10 @@ app:cardCornerRadius="3dp">
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="5dp"
+        android:layout_marginHorizontal="6dp"
         android:orientation="vertical">
 
         <TextView
@@ -30,19 +32,24 @@ app:cardCornerRadius="3dp">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nama Barang"
-            android:textStyle="bold"
-            android:textSize="20dp"/>
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:singleLine="false"/>
 
         <LinearLayout
+            android:id="@+id/LinearLayoutHarga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_below="@+id/txt_namabarang">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rp"
-                android:textSize="12dp"/>
+                android:textSize="12dp"
+                android:textColor="@color/warnautama" />
 
             <TextView
                 android:id="@+id/txt_hargabarang"
@@ -54,53 +61,57 @@ app:cardCornerRadius="3dp">
 
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/ll_totalharga"
+            android:layout_alignParentEnd="true"
             android:layout_gravity="end"
-            android:layout_marginTop="24dp">
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/txt_xjum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="x"
                 android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_jumlahbarang"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/txt_xjum"
                 android:text="Jumlah Barang"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_totalharga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="end"
             android:orientation="horizontal"
-            android:layout_gravity="end">
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rp"
-                android:textSize="12dp"/>
+                android:textSize="12dp" />
 
             <TextView
                 android:id="@+id/txt_totalharga"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Total Harga"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
 
