@@ -2,15 +2,15 @@ package com.example.tr_672019005;
 
 import java.io.Serializable;
 
-public class ModelKeranjang implements Serializable {
+public class ModelPesanan implements Serializable {
 
     String namabarang, hargabarang, imgbarang, totalbarang, currentDate, currentTime;
     int totalharga;
 
-    public ModelKeranjang() {
+    public ModelPesanan() {
     }
 
-    public ModelKeranjang(String namabarang, String hargabarang, String imgbarang, String totalbarang, String currentDate, String currentTime, int totalharga) {
+    public ModelPesanan(String namabarang, String hargabarang, String imgbarang, String totalbarang, String currentDate, String currentTime, int totalharga) {
         this.namabarang = namabarang;
         this.hargabarang = hargabarang;
         this.imgbarang = imgbarang;

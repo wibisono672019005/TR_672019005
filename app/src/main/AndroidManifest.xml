@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tr_672019005" >
+    package="com.example.tr_672019005">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -8,20 +10,30 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TR_672019005" >
+        android:theme="@style/Theme.TR_672019005">
         <activity
-            android:name=".KeranjangActivity"
+            android:name=".PesananSuksesActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity
+            android:name=".AlamatPesanActivity"
             android:exported="false" />
         <activity
-            android:name=".PesananActivity"
+            android:name=".DaftarPesanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".KeranjangActivity"
             android:exported="false" />
         <activity
             android:name=".DrawerBaseActivity"
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".ListBarangActivity"
             android:exported="false" />
@@ -33,10 +45,10 @@
             android:exported="false" />
         <activity
             android:name=".MenuActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MasukActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

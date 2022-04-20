@@ -6,16 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tr_672019005.databinding.ActivityMenuBinding;
-import com.example.tr_672019005.databinding.ActivityPesananBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentChange;
@@ -36,8 +35,8 @@ public class MenuActivity extends DrawerBaseActivity {
     ArrayList<ModelBarang> modelBarangArrayList;
     AdapterBarang adapterBarang;
     FirebaseFirestore db;
-    ProgressDialog progressDialog;
     TextView txt_listkategori;
+    ProgressBar progressBar;
 
     List<ModelKategoriBarang> modelKategoriBarangList;
     AdapterKategori adapterKategori;
@@ -49,15 +48,13 @@ public class MenuActivity extends DrawerBaseActivity {
         setContentView(activityMenuBinding.getRoot());
         allocateActivityTitle("Home");
 
-        progressDialog = new ProgressDialog(MenuActivity.this);
-        progressDialog.setTitle("Loading");
-        progressDialog.setMessage("Silahkan menunggu, sedang diproses!");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setVisibility(View.GONE);
+
+        progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.VISIBLE);
 
         modelBarangArrayList = new ArrayList<ModelBarang>();
         adapterBarang = new AdapterBarang(MenuActivity.this, modelBarangArrayList);
@@ -84,6 +81,8 @@ public class MenuActivity extends DrawerBaseActivity {
                                 ModelKategoriBarang modelKategoriBarang = document.toObject(ModelKategoriBarang.class);
                                 modelKategoriBarangList.add(modelKategoriBarang);
                                 adapterKategori.notifyDataSetChanged();
+                                progressBar.setVisibility(View.GONE);
+                                recyclerView.setVisibility(View.VISIBLE);
                             }
                         } else {
                             Toast.makeText(MenuActivity.this, "Error" + task.getException(), Toast.LENGTH_SHORT).show();
@@ -110,10 +109,6 @@ public class MenuActivity extends DrawerBaseActivity {
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
                         if (error != null) {
-
-                            if (progressDialog.isShowing()) {
-                                progressDialog.dismiss();
-                            }
                             Log.e("FireStore Error", error.getMessage());
                             return;
                         }
@@ -123,9 +118,8 @@ public class MenuActivity extends DrawerBaseActivity {
                                 modelBarangArrayList.add(dc.getDocument().toObject(ModelBarang.class));
                             }
                             adapterBarang.notifyDataSetChanged();
-                            if (progressDialog.isShowing()) {
-                                progressDialog.dismiss();
-                            }
+                            progressBar.setVisibility(View.GONE);
+                            recyclerView.setVisibility(View.VISIBLE);
                         }
 
                     }

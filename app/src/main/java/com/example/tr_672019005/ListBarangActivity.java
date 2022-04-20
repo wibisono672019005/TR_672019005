@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.ColorSpace;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,6 +27,7 @@ public class ListBarangActivity extends AppCompatActivity {
     AdapterBarang adapterBarang;
     ArrayList<ModelBarang> modelBarangArrayList;
     Toolbar toolbar_listbarang;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +38,14 @@ public class ListBarangActivity extends AppCompatActivity {
         setSupportActionBar(toolbar_listbarang);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.VISIBLE);
+
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         String type = getIntent().getStringExtra("type");
         recyclerView = findViewById(R.id.recyclerViewListBarang);
+        recyclerView.setVisibility(View.GONE);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         modelBarangArrayList = new ArrayList<>();
@@ -55,6 +62,8 @@ public class ListBarangActivity extends AppCompatActivity {
                         ModelBarang modelBarang = documentSnapshot.toObject(ModelBarang.class);
                         modelBarangArrayList.add(modelBarang);
                         adapterBarang.notifyDataSetChanged();
+                        progressBar.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
                     }
                 }
             });
@@ -70,6 +79,8 @@ public class ListBarangActivity extends AppCompatActivity {
                         ModelBarang modelBarang = documentSnapshot.toObject(ModelBarang.class);
                         modelBarangArrayList.add(modelBarang);
                         adapterBarang.notifyDataSetChanged();
+                        progressBar.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
                     }
                 }
             });

@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.tr_672019005.databinding.ActivityKeranjangBinding;
+import com.example.tr_672019005.databinding.ActivityListKategoriActivityBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -17,8 +19,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListKategoriActivity extends AppCompatActivity {
+public class ListKategoriActivity extends DrawerBaseActivity {
 
+    ActivityListKategoriActivityBinding activityListKategoriActivityBinding;
     RecyclerView listKategoriRV;
     List<ModelListKategori> modelListKategoriList;
     AdapterListKategori adapterListKategori;
@@ -28,7 +31,9 @@ public class ListKategoriActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_kategori_activity);
+        activityListKategoriActivityBinding = ActivityListKategoriActivityBinding.inflate(getLayoutInflater());
+        setContentView(activityListKategoriActivityBinding.getRoot());
+        allocateActivityTitle("Kategori");
 
         listKategoriRV = findViewById(R.id.listKategoriRV);
 

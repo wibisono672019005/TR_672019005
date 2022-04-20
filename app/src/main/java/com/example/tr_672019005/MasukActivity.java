@@ -80,7 +80,7 @@ public class MasukActivity extends AppCompatActivity {
     }
 
     private void reload() {
-        startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
+        startActivity(new Intent(getApplicationContext(), MenuActivity.class));
     }
 
     @Override

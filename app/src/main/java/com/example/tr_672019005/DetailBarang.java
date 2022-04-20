@@ -66,7 +66,7 @@ public class DetailBarang extends AppCompatActivity {
             txt_detailharga.setText(String.valueOf(modelBarang.getHargabarang()));
             txt_detaildeskripsi.setText(modelBarang.getDeskripsibarang());
 
-            totalharga = modelBarang.getHargabarang() * totalbarang;
+            totalharga = (modelBarang.getHargabarang()) * totalbarang;
 
         }
 
@@ -76,6 +76,7 @@ public class DetailBarang extends AppCompatActivity {
                 if (totalbarang > 1) {
                     totalbarang--;
                     txt_jumlahbarang.setText(String.valueOf(totalbarang));
+                    totalharga = (modelBarang.getHargabarang()) * totalbarang;
                 }
             }
         });
@@ -86,6 +87,7 @@ public class DetailBarang extends AppCompatActivity {
                 if (totalbarang < 10) {
                     totalbarang++;
                     txt_jumlahbarang.setText(String.valueOf(totalbarang));
+                    totalharga = (modelBarang.getHargabarang()) * totalbarang;
                 }
             }
         });
@@ -117,10 +119,11 @@ public class DetailBarang extends AppCompatActivity {
         keranjangMap.put("currentTime", saveCurrentTime);
         keranjangMap.put("totalbarang", txt_jumlahbarang.getText().toString());
         keranjangMap.put("totalharga", totalharga);
+        keranjangMap.put("imgbarang", modelBarang.getImgbarang());
 
-        firebaseFirestore.collection("AddToCart")
+        firebaseFirestore.collection("CurrentUser")
                 .document(auth.getCurrentUser().getUid())
-                .collection("CurrentUser")
+                .collection("AddToCart")
                 .add(keranjangMap)
                 .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override

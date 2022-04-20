@@ -66,14 +66,41 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 overridePendingTransition(0, 0);
                 break;
 
+            case R.id.nav_kategori:
+                startActivity(new Intent(this, ListKategoriActivity.class));
+                overridePendingTransition(0, 0);
+                break;
+
             case R.id.nav_pesanan:
-                startActivity(new Intent(this, PesananActivity.class));
+                startActivity(new Intent(this, DaftarPesanActivity.class));
                 overridePendingTransition(0, 0);
                 break;
 
             case R.id.nav_keranjang:
                 startActivity(new Intent(this, KeranjangActivity.class));
                 overridePendingTransition(0, 0);
+                break;
+
+            case R.id.nav_profil:
+                startActivity(new Intent(this, KeranjangActivity.class));
+                overridePendingTransition(0, 0);
+                break;
+
+            case R.id.nav_tentang:
+                startActivity(new Intent(this, KeranjangActivity.class));
+                overridePendingTransition(0, 0);
+                break;
+
+            case R.id.nav_pengaturan:
+                startActivity(new Intent(this, KeranjangActivity.class));
+                overridePendingTransition(0, 0);
+                break;
+
+            case R.id.nav_keluar:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(this, MasukActivity.class));
+                overridePendingTransition(0, 0);
+                finish();
                 break;
         }
 

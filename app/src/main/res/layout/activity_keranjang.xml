@@ -25,22 +25,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnTambahKeranjang"
+        app:layout_constraintBottom_toTopOf="@+id/btnPilihAlamat"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_totalharga" />
 
     <Button
-        android:id="@+id/btnTambahKeranjang"
+        android:id="@+id/btnPilihAlamat"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/warnautama"
-        android:text="Tambah Keranjang"
+        android:text="Pilih Alamat Pengiriman"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="10dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
