@@ -15,8 +15,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.tr_672019005.databinding.ActivityMenuBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -26,6 +30,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,9 +41,10 @@ public class MenuActivity extends DrawerBaseActivity {
     RecyclerView.LayoutManager layoutManager;
     ArrayList<ModelBarang> modelBarangArrayList;
     AdapterBarang adapterBarang;
-    FirebaseFirestore db;
+    FirebaseFirestore firebaseFirestore;
     TextView txt_listkategori;
     ProgressBar progressBar;
+    ImageSlider imageSlider;
 
     List<ModelKategoriBarang> modelKategoriBarangList;
     AdapterKategori adapterKategori;
@@ -63,7 +69,7 @@ public class MenuActivity extends DrawerBaseActivity {
         adapterBarang = new AdapterBarang(MenuActivity.this, modelBarangArrayList);
         recyclerView.setAdapter(adapterBarang);
 
-        db = FirebaseFirestore.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
         EventChangeListener();
 
@@ -73,7 +79,7 @@ public class MenuActivity extends DrawerBaseActivity {
         modelKategoriBarangList = new ArrayList<ModelKategoriBarang>();
         adapterKategori = new AdapterKategori(MenuActivity.this, modelKategoriBarangList);
         kategoriRecyclerView.setAdapter(adapterKategori);
-        db.collection("Kategori")
+        firebaseFirestore.collection("Kategori")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -102,11 +108,36 @@ public class MenuActivity extends DrawerBaseActivity {
             }
         });
 
+        imageSlider = findViewById(R.id.imageSlider);
+
+        ArrayList<SlideModel> slideModelArrayList = new ArrayList<>();
+
+        firebaseFirestore.collection("Carousel").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
+                                slideModelArrayList.add(new SlideModel(queryDocumentSnapshot.getString("url"), ScaleTypes.FIT));
+                                imageSlider.setImageList(slideModelArrayList, ScaleTypes.FIT);
+                            }
+                        } else {
+                            Toast.makeText(MenuActivity.this, "Gagal Memuat Gambar dari Database!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(MenuActivity.this, "Gagal Memuat Gambar dari Database!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
     }
 
     private void EventChangeListener() {
 
-        db.collection("Barang").orderBy("namabarang", Query.Direction.ASCENDING)
+        firebaseFirestore.collection("Barang").orderBy("namabarang", Query.Direction.ASCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

@@ -9,6 +9,7 @@
         <entry key="..\:/Abi/TR_672019005-8a8e359f3e6cd770ab5fe1429e53307d41eb8f8c/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Abi/TR_672019005-8a8e359f3e6cd770ab5fe1429e53307d41eb8f8c/app/src/main/res/layout/activity_menu.xml" value="0.1" />
         <entry key="..\:/Abi/TR_672019005-8a8e359f3e6cd770ab5fe1429e53307d41eb8f8c/app/src/main/res/layout/menu_item.xml" value="0.1" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/drawable/border.xml" value="0.136" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/drawable/ic_mines_item.xml" value="0.1415" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_alamat_pesan.xml" value="0.17572463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_cara_pesan.xml" value="0.17572463768115942" />
@@ -16,7 +17,7 @@
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_daftar_pengguna.xml" value="0.14447463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_daftar_pesan.xml" value="0.17572463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_dashboard.xml" value="0.17572463768115942" />
-        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_detail_barang.xml" value="0.22" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_detail_barang.xml" value="0.18" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_drawer_base.xml" value="0.17572463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_keranjang.xml" value="0.17572463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/activity_list_barang.xml" value="0.15172101449275363" />
@@ -34,15 +35,16 @@
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/fragment_gallery.xml" value="0.16621376811594202" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/fragment_slideshow.xml" value="0.1453125" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/header_menu.xml" value="0.25" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/image_slider.xml" value="0.1" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/kategori_barang_item.xml" value="0.15172101449275363" />
-        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/keranjang_item.xml" value="0.17572463768115942" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/keranjang_item.xml" value="0.25" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/list_barang_item.xml" value="0.15172101449275363" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/list_kategori_item.xml" value="0.15172101449275363" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/main_drawer_header.xml" value="0.17572463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/maindraw.xml" value="0.16621376811594202" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/menu_item.xml" value="0.1897644927536232" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/nav_header_main.xml" value="0.16621376811594202" />
-        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/pesanan_item.xml" value="0.1453125" />
+        <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/pesanan_item.xml" value="0.26096997690531176" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/layout/zbackuplistbarang.xml" value="0.17572463768115942" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Abi/TR_672019005/app/src/main/res/menu/main.xml" value="0.20416666666666666" />
