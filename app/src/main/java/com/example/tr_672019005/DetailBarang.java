@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -84,7 +85,7 @@ public class DetailBarang extends AppCompatActivity {
         img_kurangbarang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (totalbarang < 10) {
+                if (totalbarang < 100) {
                     totalbarang++;
                     txt_jumlahbarang.setText(String.valueOf(totalbarang));
                     totalharga = (modelBarang.getHargabarang()) * totalbarang;
@@ -132,5 +133,16 @@ public class DetailBarang extends AppCompatActivity {
                         finish();
                     }
                 });
+    }
+
+    //Toolbar Kembali
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -14,11 +14,9 @@
         <activity
             android:name=".PesananSuksesActivity"
             android:exported="false" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
-
         <activity
             android:name=".AlamatPesanActivity"
             android:exported="false" />
@@ -42,7 +40,8 @@
             android:exported="false" />
         <activity
             android:name=".DetailBarang"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".MenuActivity"
             android:exported="true" />

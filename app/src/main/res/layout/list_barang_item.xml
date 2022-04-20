@@ -3,26 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    app:cardElevation="3dp"
-    app:cardCornerRadius="3dp">
+    android:layout_gravity="center"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="5dp"
+    android:elevation="3dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/img_gambarbarang"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_background" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_gambarbarang"
+            android:padding="8dp"
             android:orientation="vertical">
 
             <TextView
@@ -30,18 +32,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Barang"
-                android:textStyle="bold"
-                android:textSize="25dp"/>
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_deskripsibarang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Deskripsi Barang"
-                android:textSize="15dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:singleLine="false"/>
+                android:singleLine="false"
+                android:text="Deskripsi Barang"
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/txt_hargabarang"
@@ -49,10 +51,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Harga Barang"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
 
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

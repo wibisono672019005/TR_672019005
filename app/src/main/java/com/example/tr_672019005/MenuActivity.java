@@ -3,6 +3,7 @@ package com.example.tr_672019005;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,6 +33,7 @@ public class MenuActivity extends DrawerBaseActivity {
 
     ActivityMenuBinding activityMenuBinding;
     RecyclerView recyclerView, kategoriRecyclerView;
+    RecyclerView.LayoutManager layoutManager;
     ArrayList<ModelBarang> modelBarangArrayList;
     AdapterBarang adapterBarang;
     FirebaseFirestore db;
@@ -50,7 +52,8 @@ public class MenuActivity extends DrawerBaseActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setVisibility(View.GONE);
 
         progressBar = findViewById(R.id.progressbar);
