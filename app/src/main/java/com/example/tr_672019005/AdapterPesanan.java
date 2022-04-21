@@ -45,7 +45,6 @@ public class AdapterPesanan extends RecyclerView.Adapter<AdapterPesanan.ViewHold
         holder.hargabarang.setText(modelPesanan.getHargabarang());
         holder.totalbarang.setText(modelPesanan.getTotalbarang());
         holder.totalharga.setText(String.valueOf(modelPesanan.getTotalharga()));
-        holder.currentDate.setText(modelPesanan.getCurrentDate());
         holder.currentTime.setText(modelPesanan.getCurrentTime());
     }
 
@@ -56,7 +55,7 @@ public class AdapterPesanan extends RecyclerView.Adapter<AdapterPesanan.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView namabarang, hargabarang, totalbarang, totalharga, currentDate, currentTime;
+        TextView namabarang, hargabarang, totalbarang, totalharga, currentTime;
         ImageView img_gambarbarang;
 
         public ViewHolder(@NonNull View itemView) {
@@ -67,7 +66,6 @@ public class AdapterPesanan extends RecyclerView.Adapter<AdapterPesanan.ViewHold
             totalbarang = itemView.findViewById(R.id.txt_jumlahbarang);
             totalharga = itemView.findViewById(R.id.txt_totalharga);
             img_gambarbarang = itemView.findViewById(R.id.img_gambarbarang);
-            currentDate = itemView.findViewById(R.id.txt_currentDate);
             currentTime = itemView.findViewById(R.id.txt_currentTime);
         }
     }

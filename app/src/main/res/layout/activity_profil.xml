@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
-    android:background="@color/warnautama"
-    android:padding="20dp"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ProfilActivity">
 
     <ImageView
         android:id="@+id/img_gambarprofil"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginTop="30dp"
         android:src="@drawable/ic_pet"
-        app:tint="@color/white" />
+        app:tint="@color/warnautama" />
 
     <TextView
-        android:id="@+id/txt_menunama"
+        android:id="@+id/txt_profilnama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Nama Pengguna"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
+        android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/txt_menuemail"
+        android:id="@+id/txt_profilemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
         android:text="Email Pengguna"
-        android:textColor="@color/white"/>
+        android:textColor="@color/black"/>
 
 </LinearLayout>

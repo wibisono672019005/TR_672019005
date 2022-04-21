@@ -4,19 +4,19 @@ import java.io.Serializable;
 
 public class ModelKeranjang implements Serializable {
 
-    String namabarang, hargabarang, imgbarang, totalbarang, currentDate, currentTime;
+    String namabarang, hargabarang, imgbarang, totalbarang, currentTime, barangKeranjangId;
     int totalharga;
 
     public ModelKeranjang() {
     }
 
-    public ModelKeranjang(String namabarang, String hargabarang, String imgbarang, String totalbarang, String currentDate, String currentTime, int totalharga) {
+    public ModelKeranjang(String namabarang, String hargabarang, String imgbarang, String totalbarang, String currentTime, String barangKeranjangId, int totalharga) {
         this.namabarang = namabarang;
         this.hargabarang = hargabarang;
         this.imgbarang = imgbarang;
         this.totalbarang = totalbarang;
-        this.currentDate = currentDate;
         this.currentTime = currentTime;
+        this.barangKeranjangId = barangKeranjangId;
         this.totalharga = totalharga;
     }
 
@@ -52,20 +52,20 @@ public class ModelKeranjang implements Serializable {
         this.totalbarang = totalbarang;
     }
 
-    public String getCurrentDate() {
-        return currentDate;
-    }
-
-    public void setCurrentDate(String currentDate) {
-        this.currentDate = currentDate;
-    }
-
     public String getCurrentTime() {
         return currentTime;
     }
 
     public void setCurrentTime(String currentTime) {
         this.currentTime = currentTime;
+    }
+
+    public String getBarangKeranjangId() {
+        return barangKeranjangId;
+    }
+
+    public void setBarangKeranjangId(String barangKeranjangId) {
+        this.barangKeranjangId = barangKeranjangId;
     }
 
     public int getTotalharga() {

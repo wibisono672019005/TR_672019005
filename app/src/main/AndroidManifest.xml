@@ -12,11 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TR_672019005">
         <activity
+            android:name=".TentangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailCariBarang"
+            android:exported="false" />
+        <activity
             android:name=".PesananSuksesActivity"
             android:exported="false" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
         <activity
             android:name=".AlamatPesanActivity"
             android:exported="false" />
@@ -30,9 +36,6 @@
             android:name=".DrawerBaseActivity"
             android:exported="false" />
         <activity
-            android:name=".DashboardActivity"
-            android:exported="false" />
-        <activity
             android:name=".ListBarangActivity"
             android:exported="false" />
         <activity
@@ -40,8 +43,7 @@
             android:exported="false" />
         <activity
             android:name=".DetailBarang"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MenuActivity"
             android:exported="true" />
@@ -57,9 +59,10 @@
         <activity
             android:name=".DaftarActivity"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
     </application>
 
 </manifest>

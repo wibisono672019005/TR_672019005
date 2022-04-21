@@ -29,13 +29,13 @@
 
         <TextView
             android:id="@+id/txt_namabarang"
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="Nama Barang"
-            android:textSize="16sp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:singleLine="false"/>
+            android:singleLine="false"
+            android:text="Nama Barang"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:id="@+id/LinearLayoutHarga"
@@ -61,12 +61,23 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/img_hapusbarang"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="2dp"
+            android:padding="0dp"
+            android:src="@drawable/ic_hapus" />
+
         <LinearLayout
+            android:id="@+id/ll_jumbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/ll_totalharga"
             android:layout_alignParentEnd="true"
             android:layout_gravity="end"
+            android:layout_marginRight="2dp"
             android:orientation="horizontal">
 
             <TextView
@@ -94,6 +105,7 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="end"
             android:orientation="horizontal"
+            android:layout_marginRight="2dp"
             android:layout_marginBottom="5dp">
 
             <TextView

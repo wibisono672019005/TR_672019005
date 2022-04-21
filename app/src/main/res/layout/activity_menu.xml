@@ -17,6 +17,36 @@
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
 
+            <EditText
+                android:id="@+id/edit_pencarian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_pencarian"
+                android:drawableRight="@drawable/ic_pencarian"
+                android:drawablePadding="5dp"
+                android:elevation="3dp"
+                android:padding="12dp"
+                android:hint="Cari Barang Disini..."/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:descendantFocusability="blocksDescendants">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewPencarian"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:nestedScrollingEnabled="true">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </RelativeLayout>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -81,27 +111,30 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                tools:listitem="@layout/list_barang_item"
-                tools:layout_editor_absoluteX="1dp"
-                tools:layout_editor_absoluteY="1dp">
+                android:descendantFocusability="blocksDescendants">
 
-            </androidx.recyclerview.widget.RecyclerView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    tools:layout_editor_absoluteX="1dp"
+                    tools:layout_editor_absoluteY="1dp"
+                    android:nestedScrollingEnabled="true"
+                    tools:listitem="@layout/list_barang_item">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </RelativeLayout>
 
         </LinearLayout>
 
         </LinearLayout>
-
-
 
     </ScrollView>
-
-
-
 
     <ProgressBar
         android:id="@+id/progressbar"

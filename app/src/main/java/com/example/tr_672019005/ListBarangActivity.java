@@ -90,9 +90,9 @@ public class ListBarangActivity extends AppCompatActivity {
             });
         }
 
-        //Mendapatkan Type "makanankucing"
-        if (type != null && type.equalsIgnoreCase("makanankucing")) {
-            firebaseFirestore.collection("Barang").whereEqualTo("type", "makanankucing").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        //Mendapatkan Type "kucing"
+        if (type != null && type.equalsIgnoreCase("kucing")) {
+            firebaseFirestore.collection("Barang").whereEqualTo("type", "kucing").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
@@ -107,9 +107,9 @@ public class ListBarangActivity extends AppCompatActivity {
             });
         }
 
-        //Mendapatkan Type "makanananjing"
-        if (type != null && type.equalsIgnoreCase("makanananjing")) {
-            firebaseFirestore.collection("Barang").whereEqualTo("type", "makanananjing").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        //Mendapatkan Type "anjing"
+        if (type != null && type.equalsIgnoreCase("anjing")) {
+            firebaseFirestore.collection("Barang").whereEqualTo("type", "anjing").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
 

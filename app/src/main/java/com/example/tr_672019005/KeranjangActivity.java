@@ -74,28 +74,33 @@ public class KeranjangActivity extends DrawerBaseActivity {
         recyclerViewKeranjang.setVisibility(View.GONE);
 
         overTotalAmount = findViewById(R.id.txt_totalharga);
-        LocalBroadcastManager.getInstance(KeranjangActivity.this)
-                .registerReceiver(broadcastReceiver, new IntentFilter("MyTotalAmount"));
 
         modelKeranjangList = new ArrayList<ModelKeranjang>();
         adapterKeranjang = new AdapterKeranjang(KeranjangActivity.this, (ArrayList<ModelKeranjang>) modelKeranjangList);
         recyclerViewKeranjang.setAdapter(adapterKeranjang);
 
         firebaseFirestore.collection("CurrentUser").document(auth.getCurrentUser().getUid())
-                .collection("AddToCart").get()
+                .collection("Keranjang").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
+
+                                String barangKeranjangId = documentSnapshot.getId();
                                 ModelKeranjang modelKeranjang = documentSnapshot.toObject(ModelKeranjang.class);
+
+                                modelKeranjang.setBarangKeranjangId(barangKeranjangId);
+
                                 modelKeranjangList.add(modelKeranjang);
                                 adapterKeranjang.notifyDataSetChanged();
                                 progressBar.setVisibility(View.GONE);
                                 recyclerViewKeranjang.setVisibility(View.VISIBLE);
                             }
+                            jumlahTotalHargaKeranjang(modelKeranjangList);
                         }
                     }
+                    
                 });
 
         btnPilihAlamat.setOnClickListener(new View.OnClickListener() {
@@ -108,14 +113,14 @@ public class KeranjangActivity extends DrawerBaseActivity {
         });
     }
 
-    public BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-            int totalBill = intent.getIntExtra("totalAmount", 0);
-            overTotalAmount.setText("Total Bill :" + totalBill);
+    private void jumlahTotalHargaKeranjang(List<ModelKeranjang> modelKeranjangList) {
+        double totalKeranjangku = 0.0;
+        for (ModelKeranjang modelKeranjang : modelKeranjangList) {
+            totalKeranjangku += modelKeranjang.getTotalharga();
         }
-    };
+
+        overTotalAmount.setText("" + totalKeranjangku);
+    }
 
 
 }

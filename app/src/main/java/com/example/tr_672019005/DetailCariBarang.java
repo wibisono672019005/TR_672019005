@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class DetailBarang extends AppCompatActivity {
+public class DetailCariBarang extends AppCompatActivity {
 
     ImageView img_detailbarang, img_tambahbarang, img_kurangbarang;
     TextView txt_detailnama, txt_detailharga, txt_detaildeskripsi, txt_jumlahbarang;
@@ -35,12 +35,12 @@ public class DetailBarang extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     FirebaseAuth auth;
 
-    ModelBarang modelBarang = null;
+    ModelPencarian modelPencarian = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_barang);
+        setContentView(R.layout.activity_detail_cari_barang);
 
         toolbar = findViewById(R.id.toolbar_detailbarang);
         setSupportActionBar(toolbar);
@@ -49,8 +49,8 @@ public class DetailBarang extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         final Object object = getIntent().getSerializableExtra("detail");
-        if (object instanceof ModelBarang) {
-            modelBarang = (ModelBarang) object;
+        if (object instanceof ModelPencarian) {
+            modelPencarian = (ModelPencarian) object;
         }
 
         txt_jumlahbarang = findViewById(R.id.txt_jumlahbarang);
@@ -61,13 +61,13 @@ public class DetailBarang extends AppCompatActivity {
         txt_detailharga = findViewById(R.id.txt_detailharga);
         txt_detaildeskripsi = findViewById(R.id.txt_detaildeskripsi);
 
-        if (modelBarang != null) {
-            Glide.with(getApplicationContext()).load(modelBarang.getImgbarang()).into(img_detailbarang);
-            txt_detailnama.setText(modelBarang.getNamabarang());
-            txt_detailharga.setText(String.valueOf(modelBarang.getHargabarang()));
-            txt_detaildeskripsi.setText(modelBarang.getDeskripsibarang());
+        if (modelPencarian != null) {
+            Glide.with(getApplicationContext()).load(modelPencarian.getImgbarang()).into(img_detailbarang);
+            txt_detailnama.setText(modelPencarian.getNamabarang());
+            txt_detailharga.setText(String.valueOf(modelPencarian.getHargabarang()));
+            txt_detaildeskripsi.setText(modelPencarian.getDeskripsibarang());
 
-            totalharga = (modelBarang.getHargabarang()) * totalbarang;
+            totalharga = (modelPencarian.getHargabarang()) * totalbarang;
 
         }
 
@@ -77,7 +77,7 @@ public class DetailBarang extends AppCompatActivity {
                 if (totalbarang > 1) {
                     totalbarang--;
                     txt_jumlahbarang.setText(String.valueOf(totalbarang));
-                    totalharga = (modelBarang.getHargabarang()) * totalbarang;
+                    totalharga = (modelPencarian.getHargabarang()) * totalbarang;
                 }
             }
         });
@@ -88,7 +88,7 @@ public class DetailBarang extends AppCompatActivity {
                 if (totalbarang < 100) {
                     totalbarang++;
                     txt_jumlahbarang.setText(String.valueOf(totalbarang));
-                    totalharga = (modelBarang.getHargabarang()) * totalbarang;
+                    totalharga = (modelPencarian.getHargabarang()) * totalbarang;
                 }
             }
         });
@@ -111,19 +111,19 @@ public class DetailBarang extends AppCompatActivity {
 
         final HashMap<String,Object> keranjangMap = new HashMap<>();
 
-        keranjangMap.put("namabarang", modelBarang.getNamabarang());
+        keranjangMap.put("namabarang", modelPencarian.getNamabarang());
         keranjangMap.put("hargabarang", txt_detailharga.getText().toString());
         keranjangMap.put("currentTime", saveCurrentTime);
         keranjangMap.put("totalbarang", txt_jumlahbarang.getText().toString());
         keranjangMap.put("totalharga", totalharga);
-        keranjangMap.put("imgbarang", modelBarang.getImgbarang());
+        keranjangMap.put("imgbarang", modelPencarian.getImgbarang());
 
         firebaseFirestore.collection("CurrentUser").document(auth.getCurrentUser().getUid())
                 .collection("Keranjang").add(keranjangMap)
                 .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
-                        Toast.makeText(DetailBarang.this, "Berhasil ditambahkan ke Keranjang", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailCariBarang.this, "Berhasil ditambahkan ke Keranjang", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

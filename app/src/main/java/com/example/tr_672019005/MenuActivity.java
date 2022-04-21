@@ -9,8 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -38,7 +42,7 @@ public class MenuActivity extends DrawerBaseActivity {
 
     ActivityMenuBinding activityMenuBinding;
     RecyclerView recyclerView, kategoriRecyclerView;
-    RecyclerView.LayoutManager layoutManager;
+    RecyclerView.LayoutManager layoutManager, layoutManagerPencarian;
     ArrayList<ModelBarang> modelBarangArrayList;
     AdapterBarang adapterBarang;
     FirebaseFirestore firebaseFirestore;
@@ -46,8 +50,14 @@ public class MenuActivity extends DrawerBaseActivity {
     ProgressBar progressBar;
     ImageSlider imageSlider;
 
+    EditText edit_pencarian;
+    RecyclerView recyclerViewPencarian;
+    ArrayList<ModelPencarian> modelPencarianArrayList;
+    AdapterPencarian adapterPencarian;
+
     List<ModelKategoriBarang> modelKategoriBarangList;
     AdapterKategori adapterKategori;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +66,42 @@ public class MenuActivity extends DrawerBaseActivity {
         setContentView(activityMenuBinding.getRoot());
         allocateActivityTitle("Home");
 
+        //PENCARIAN BARANG
+        recyclerViewPencarian = findViewById(R.id.recyclerViewPencarian);
+        recyclerViewPencarian.setHasFixedSize(true);
+        recyclerViewPencarian.setNestedScrollingEnabled(false);
+        layoutManagerPencarian = new GridLayoutManager(this, 2);
+        recyclerViewPencarian.setLayoutManager(layoutManagerPencarian);
+        modelPencarianArrayList = new ArrayList<ModelPencarian>();
+        adapterPencarian = new AdapterPencarian(MenuActivity.this, modelPencarianArrayList);
+        recyclerViewPencarian.setAdapter(adapterPencarian);
+
+        edit_pencarian = findViewById(R.id.edit_pencarian);
+        edit_pencarian.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.toString().isEmpty()) {
+                    modelPencarianArrayList.clear();
+                    adapterPencarian.notifyDataSetChanged();
+                } else {
+                    cariBarang(editable.toString());
+                }
+            }
+        });
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
         layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setVisibility(View.GONE);
@@ -133,6 +177,27 @@ public class MenuActivity extends DrawerBaseActivity {
                     }
                 });
 
+
+    }
+
+    private void cariBarang(String type) {
+        if (!type.isEmpty()) {
+            firebaseFirestore.collection("Barang").whereEqualTo("type", type).get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful() && task.getResult() != null) {
+                                modelPencarianArrayList.clear();
+                                adapterPencarian.notifyDataSetChanged();
+                                for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
+                                    ModelPencarian modelPencarian = documentSnapshot.toObject(ModelPencarian.class);
+                                    modelPencarianArrayList.add(modelPencarian);
+                                    adapterPencarian.notifyDataSetChanged();
+                                }
+                            }
+                        }
+                    });
+        }
     }
 
     private void EventChangeListener() {

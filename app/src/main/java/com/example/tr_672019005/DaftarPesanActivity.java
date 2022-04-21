@@ -64,7 +64,7 @@ public class DaftarPesanActivity extends DrawerBaseActivity {
         recyclerViewDP.setAdapter(adapterPesanan);
 
         firebaseFirestore.collection("CurrentUser").document(auth.getCurrentUser().getUid())
-                .collection("Transaksi").get()
+                .collection("Transaksi").orderBy("currentTime").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {

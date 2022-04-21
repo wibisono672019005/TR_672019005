@@ -82,17 +82,12 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 break;
 
             case R.id.nav_profil:
-                startActivity(new Intent(this, KeranjangActivity.class));
+                startActivity(new Intent(this, ProfilActivity.class));
                 overridePendingTransition(0, 0);
                 break;
 
             case R.id.nav_tentang:
-                startActivity(new Intent(this, KeranjangActivity.class));
-                overridePendingTransition(0, 0);
-                break;
-
-            case R.id.nav_pengaturan:
-                startActivity(new Intent(this, KeranjangActivity.class));
+                startActivity(new Intent(this, TentangActivity.class));
                 overridePendingTransition(0, 0);
                 break;
 

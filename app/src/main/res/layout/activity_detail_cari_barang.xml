@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailBarang">
+    tools:context=".DetailCariBarang">
 
     <ImageView
         android:id="@+id/img_detailbarang"
@@ -32,10 +32,10 @@
         android:layout_height="wrap_content"
         android:text="Nama Barang"
         android:textColor="@color/black"
+        android:layout_marginTop="5dp"
         android:ellipsize="end"
         android:maxLines="2"
         android:singleLine="false"
-        android:layout_marginTop="5dp"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_detailbarang"
@@ -119,7 +119,7 @@
         android:layout_marginLeft="10dp"
         android:text="1"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
         app:layout_constraintStart_toEndOf="@+id/img_tambahbarang"

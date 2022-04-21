@@ -94,7 +94,7 @@ public class DaftarActivity extends AppCompatActivity {
     }
 
     private void reload() {
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        startActivity(new Intent(getApplicationContext(), MenuActivity.class));
     }
 
     @Override

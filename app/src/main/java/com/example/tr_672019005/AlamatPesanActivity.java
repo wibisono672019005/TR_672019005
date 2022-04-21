@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -136,10 +137,7 @@ public class AlamatPesanActivity extends AppCompatActivity implements OnMapReady
                 String saveCurrentDate, saveCurrentTime;
                 Calendar calForDate = Calendar.getInstance();
 
-                SimpleDateFormat currentDate = new SimpleDateFormat("MM dd, yyyy");
-                saveCurrentDate = currentDate.format(calForDate.getTime());
-
-                SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+                SimpleDateFormat currentTime = new SimpleDateFormat("dd MM, yyyy HH:mm:ss a");
                 saveCurrentTime = currentTime.format(calForDate.getTime());
 
                 final HashMap<String, Object> keranjangMap = new HashMap<>();
@@ -152,19 +150,18 @@ public class AlamatPesanActivity extends AppCompatActivity implements OnMapReady
 
                 keranjangMap.put("namabarang", modelKeranjang.getNamabarang());
                 keranjangMap.put("hargabarang", modelKeranjang.getHargabarang());
-                keranjangMap.put("currentDate", saveCurrentDate);
                 keranjangMap.put("currentTime", saveCurrentTime);
                 keranjangMap.put("totalbarang", modelKeranjang.getTotalbarang());
                 keranjangMap.put("totalharga", modelKeranjang.getTotalharga());
                 keranjangMap.put("imgbarang", modelKeranjang.getImgbarang());
 
                 if (isNewOrder) {
-
                     firebaseFirestore.collection("CurrentUser").document(auth.getCurrentUser().getUid())
                             .collection("Transaksi").add(keranjangMap)
                             .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentReference> task) {
+
                                     Toast.makeText(AlamatPesanActivity.this, "Berhasil Melakukan Pesanan di Pet Shop!", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), PesananSuksesActivity.class);
                                     startActivity(intent);
@@ -175,7 +172,6 @@ public class AlamatPesanActivity extends AppCompatActivity implements OnMapReady
                             .collection("Transaksi").document(orderId).set(keranjangMap)
                             .addOnSuccessListener(unused -> {
                                 txtSelectedPlace.setText("");
-
                                 isNewOrder = true;
                             })
                             .addOnFailureListener(e -> {

@@ -3,4 +3,6 @@
     <string name="deskripsibarang">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
     <string name="menu_drawer_open">Drawer Open</string>
     <string name="menu_drawer_close">Drawer Close</string>
+    <string name="text_tentang">Aplikasi Simbah Pet Shop adalah aplikasi yang ditujukan untuk penjualan barang-barang yang ada di Simbah Pet Shop.</string>
+    <string name="text_tentang2">Dalam Tugas Rancang ini, Simbah Pet Shop dimisalkan berlokasi di Salatiga dan menjual barang-barang yang dibutuhkan Hewan khusus di area Salatiga. Pengguna dapat mendaftarkan dirinya terhadap aplikasi, melihat daftar barang-barang Pet Shop, menambahkan kedalam keranjang, memilih alamat lokasi pengiriman, serta melakukan pemesanan secara Online.</string>
 </resources>
