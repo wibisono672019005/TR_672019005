@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/img_gambarprofil"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:src="@drawable/ic_pet"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/logo_petshop"
         app:tint="@color/warnautama" />
 
     <TextView

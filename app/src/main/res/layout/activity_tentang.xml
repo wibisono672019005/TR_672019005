@@ -40,8 +40,7 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:scaleType="fitCenter"
-            app:tint="@color/black"
-            android:src="@drawable/ic_pet"/>
+            android:src="@drawable/logo_petshop"/>
 
     </LinearLayout>
 

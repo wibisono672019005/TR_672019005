@@ -14,6 +14,7 @@
         android:textAlignment="center"
         android:textSize="40sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,12 +23,22 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:src="@drawable/ic_pet"
+        android:layout_height="200dp"
+        android:src="@drawable/logo_petshop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <ImageView
+        android:id="@+id/txt_logopetshop"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:src="@drawable/text_petshop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.1" />
 
     <TextView
@@ -41,7 +52,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_logopetshop" />
 
     <Button
         android:id="@+id/btnLanjut"
