@@ -3,25 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginHorizontal="16dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".TentangActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            app:tint="@color/black"
-            android:src="@drawable/ic_pet"/>
-
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="230dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -41,13 +36,22 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:scaleType="fitCenter"
+            app:tint="@color/black"
+            android:src="@drawable/ic_pet"/>
+
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="10dp"
         android:textSize="16dp"
+        android:justificationMode="inter_word"
         android:text="@string/text_tentang2"/>
 
 </LinearLayout>
