@@ -206,12 +206,10 @@ public class MenuActivity extends DrawerBaseActivity {
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-
                         if (error != null) {
                             Log.e("FireStore Error", error.getMessage());
                             return;
                         }
-
                         for (DocumentChange dc : value.getDocumentChanges()) {
                             if (dc.getType() == DocumentChange.Type.ADDED) {
                                 modelBarangArrayList.add(dc.getDocument().toObject(ModelBarang.class));
